@@ -6,6 +6,9 @@ from .serializers import PostSerializer
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+    
+def landing(request):
+    return render(request, 'landing.html')
 
 class PostApiViewSet(ModelViewSet):
     serializer_class = PostSerializer
