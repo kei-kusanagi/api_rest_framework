@@ -19,7 +19,6 @@ from ap_blog import views
 from ap_blog.router import router_posts
 
 #Swagger inport
-from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
@@ -41,7 +40,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('landing/', views.landing, name='landing'),
-    path('api/', include(router_posts.urls)),
+    #path('api/', include(router_posts.urls)),
+
+    path('api/', include('api.urls')), # localhost:8000/api/
 
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redocs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
